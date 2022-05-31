@@ -10,13 +10,6 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class TedtalkController(private val tedtalkService: TedtalkService) {
 
-    @PostMapping("/tedtalk")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun saveTedtalk(@RequestBody dto: TedtalkDto): TedtalkDto {
-
-        return dto
-    }
-
     @GetMapping("/tedtalk/{id}")
     @ResponseStatus(HttpStatus.OK)
     fun getTedtalkById(@PathVariable id: String) : Tedtalk? {
@@ -36,10 +29,17 @@ class TedtalkController(private val tedtalkService: TedtalkService) {
         return tedtalkService.deleteTedtalkById(id)
 
     }
-
+    
     @GetMapping("/tedtalk")
     @ResponseStatus(HttpStatus.OK)
     fun findTedTalks(@RequestParam author: String, @RequestParam title: String, @RequestParam views: Long, @RequestParam likes: Long) : List<Tedtalk> {
         return tedtalkService.findTedTalks(author, title, views, likes)
+    }
+
+    @PostMapping("/tedtalk")
+    @ResponseStatus(HttpStatus.CREATED)
+    fun saveTedtalk(@RequestBody dto: TedtalkDto): TedtalkDto {
+
+        return dto
     }
 }
