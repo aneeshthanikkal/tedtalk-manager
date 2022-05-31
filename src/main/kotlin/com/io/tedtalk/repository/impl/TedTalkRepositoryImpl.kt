@@ -16,7 +16,7 @@ import javax.persistence.criteria.Root
 class TedTalkRepositoryImpl : TedTalkRepositoryCustom {
 
     @PersistenceContext protected lateinit var entityManager: EntityManager
-    override fun findTedTalksByAuthorTitleViewsAndLikes(
+    override fun findTedTalksByAuthorAndTitleAndViewsAndLikes(
         author: String,
         title: String,
         views: Long,

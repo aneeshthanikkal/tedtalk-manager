@@ -37,6 +37,6 @@ class TedtalkService(val tedtalkRepository: TedtalkRepository) {
     }
 
     fun findTedTalks(author: String, title: String, views: Long, likes: Long): List<Tedtalk> {
-        return tedtalkRepository.findTedTalksByAuthorTitleViewsAndLikes(author, title, views, likes)
+        return tedtalkRepository.findTedTalksByAuthorAndTitleAndViewsAndLikes(author, title, views, likes)
     }
 }
