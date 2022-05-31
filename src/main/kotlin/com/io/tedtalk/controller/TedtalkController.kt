@@ -29,7 +29,7 @@ class TedtalkController(private val tedtalkService: TedtalkService) {
         return tedtalkService.deleteTedtalkById(id)
 
     }
-    
+
     @GetMapping("/tedtalk")
     @ResponseStatus(HttpStatus.OK)
     fun findTedTalks(@RequestParam author: String, @RequestParam title: String, @RequestParam views: Long, @RequestParam likes: Long) : List<Tedtalk> {
