@@ -1,4 +1,4 @@
-package com.io.tedtalk.exception
+package com.io.tedtalk.common
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

@@ -1,7 +1,5 @@
-package com.io.tedtalk.repository.impl
+package com.io.tedtalk.talks
 
-import com.io.tedtalk.model.Tedtalk
-import com.io.tedtalk.repository.TedTalkRepositoryCustom
 import org.springframework.stereotype.Repository
 import org.springframework.util.StringUtils
 import javax.persistence.EntityManager
@@ -17,10 +15,10 @@ class TedTalkRepositoryImpl : TedTalkRepositoryCustom {
 
     @PersistenceContext protected lateinit var entityManager: EntityManager
     override fun findTedTalksByAuthorAndTitleAndViewsAndLikes(
-        author: String,
-        title: String,
-        views: Long,
-        likes: Long
+        author: String?,
+        title: String?,
+        views: Long?,
+        likes: Long?
     ): List<Tedtalk> {
         val builder: CriteriaBuilder = entityManager.criteriaBuilder
         val query: CriteriaQuery<Tedtalk> = builder.createQuery(Tedtalk::class.java)

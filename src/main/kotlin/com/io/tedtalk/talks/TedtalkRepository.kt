@@ -1,6 +1,5 @@
-package com.io.tedtalk.repository
+package com.io.tedtalk.talks
 
-import com.io.tedtalk.model.Tedtalk
 import org.springframework.data.repository.CrudRepository
 
 interface TedtalkRepository : CrudRepository<Tedtalk, String>, TedTalkRepositoryCustom {

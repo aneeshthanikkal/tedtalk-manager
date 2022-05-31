@@ -1,4 +1,4 @@
-package com.io.tedtalk.model
+package com.io.tedtalk.talks
 
 import lombok.Getter
 import lombok.Setter

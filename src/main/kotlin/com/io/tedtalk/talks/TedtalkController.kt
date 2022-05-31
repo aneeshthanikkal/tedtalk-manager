@@ -1,9 +1,5 @@
-package com.io.tedtalk.controller
+package com.io.tedtalk.talks
 
-import com.io.tedtalk.dto.TedtalkDto
-import com.io.tedtalk.exception.CommonResourceNotFoundException
-import com.io.tedtalk.model.Tedtalk
-import com.io.tedtalk.service.TedtalkService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -32,14 +28,18 @@ class TedtalkController(private val tedtalkService: TedtalkService) {
 
     @GetMapping("/tedtalk")
     @ResponseStatus(HttpStatus.OK)
-    fun findTedTalks(@RequestParam author: String, @RequestParam title: String, @RequestParam views: Long, @RequestParam likes: Long) : List<Tedtalk> {
+    fun findTedTalks(
+        @RequestParam author: String?,
+        @RequestParam title: String?,
+        @RequestParam views: Long?,
+        @RequestParam likes: Long?
+    ) : List<Tedtalk> {
         return tedtalkService.findTedTalks(author, title, views, likes)
     }
 
     @PostMapping("/tedtalk")
     @ResponseStatus(HttpStatus.CREATED)
     fun saveTedtalk(@RequestBody dto: TedtalkDto): TedtalkDto {
-
         return dto
     }
 }
